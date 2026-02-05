@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { RiCloseLine, RiMenu2Line } from '@remixicon/react';
+import { RiCloseLine, RiMenu2Line, RiSearchLine, RiUserLine, RiArrowDownSLine } from '@remixicon/react';
 import { Link } from 'react-router-dom';
 
 const menus = [
@@ -45,7 +45,7 @@ function Navbar() {
                     <li key={menu.key} className="relative group" onClick={() => toggleMenu(menu.key)} >
                         <div className="flex justify-between items-center px-6 py-2 lg:py-6 lg:p-0 cursor-pointer">
                             {menu.label}
-                            <i className={`fa-solid fa-angle-down transition-transform duration-300 lg:group-hover:rotate-180 ${activeMenu === menu.key ? "rotate-180 lg:rotate-0" : ""}`} />
+                            <RiArrowDownSLine className={`transition-transform duration-300 lg:group-hover:rotate-180 ${activeMenu === menu.key ? "rotate-180 lg:rotate-0" : ""}`} />
                         </div>
                         <ul className={`overflow-hidden scroll-auto bg-blue-900 lg:bg-white lg:text-gray-800 lg:absolute lg:top-full lg:w-56 lg:rounded-xl lg:shadow-xl transition-all duration-300 ease-in-out ${activeMenu === menu.key ? "max-h-96 opacity-100" : "max-h-0 opacity-0"} lg:max-h-none lg:opacity-0 lg:scale-95 lg:pointer-events-none lg:group-hover:opacity-100 lg:group-hover:scale-100 lg:group-hover:pointer-events-auto`}>
                             {menu.items.map((item, i) => (
@@ -59,8 +59,8 @@ function Navbar() {
             </ul>
 
             <ul className='hidden lg:flex gap-6 py-2'>
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <i class="fa-regular fa-user"></i>
+                <RiSearchLine size={20} />
+                <RiUserLine size={20} />
             </ul>
             {
                 menuOpen ? (
